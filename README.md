@@ -1,7 +1,7 @@
 # NSGA-II-in-python
 《A fast and elitist multi-objective genetic algorithm: NSGA-II》
 
-f1=x^2
+$f(x)=x^2$
 
 f2=(x-2)**2
 
