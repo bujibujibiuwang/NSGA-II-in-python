@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# 快速非支配排序
 def fast_non_dominated_sort(values1, values2):
     size = len(values1)
     dominate_set = [[] for _ in range(size)]  # 解p支配的解集合
@@ -40,6 +41,7 @@ def fast_non_dominated_sort(values1, values2):
     return fronts
 
 
+# 计算拥挤距离
 def crowed_distance_assignment(values1, values2, front):
     length = len(front)
     sorted_front1 = sorted(front, key=lambda x: values1[x])
@@ -53,7 +55,6 @@ def crowed_distance_assignment(values1, values2, front):
         dis_table[k] = dis_table[k]+(values2[sorted_front2[i+1]]-values2[sorted_front2[i-1]])/(max(values2)-min(values2))
     distance = [dis_table[a] for a in front]
     return distance
-
 
 
 def function1(x):
@@ -83,6 +84,7 @@ def mutation(solution):
     return solution
 
 
+# NSGA2主循环
 def main_loop(pop_size, max_gen, init_population):
     gen_no = 0
     population_P = init_population.copy()
